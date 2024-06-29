@@ -7,8 +7,11 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Команда Кахаць!", 
-  description: "ОАО \"Электроаппаратура\" - Была команда кахаць!",
+  title: "Команда Кахаць!",
+  description: 'ОАО "Электроаппаратура" - Была команда кахаць!',
+  icons: {
+    icon: '/logo.svg',
+  },
 };
 
 export default function RootLayout({
@@ -21,7 +24,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
         {children}
-        <Footer />  
+        <Footer />
       </body>
     </html>
   );
