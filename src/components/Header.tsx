@@ -1,89 +1,43 @@
 "use client";
 import Link from "next/link";
-import { HandHeart } from "lucide-react"; // Импорт иконки hand-heart
-import { useEffect, useRef } from "react";
+import { HandHeart } from "lucide-react";
+import Image from "next/image";
 
 const Header: React.FC = () => {
-  const animateRefs = useRef<(HTMLSpanElement | null)[]>([]);
-
-  useEffect(() => {
-    animateRefs.current.forEach((ref, index) => {
-      if (ref) {
-        ref.classList.add(`animate__fadeIn${(index % 4) + 1}`); // Применяем классы анимации fadeIn1, fadeIn2, fadeIn3, fadeIn4
-      }
-    });
-  }, []);
+  const text = '"Кахаць"';
+  const colors = [
+    "text-purple-600",
+    "text-yellow-400",
+    "text-blue-600",
+    "text-yellow-300",
+    "text-green-600",
+  ];
 
   return (
     <header className="bg-red-300 p-4 shadow-md">
       <div className="container mx-auto flex justify-center items-center">
-        <div className="text-2xl font-bold text-center flex items-center space-x-1">
-          {/* Анимация и разные цвета для каждой буквы */}
-          <span
-            ref={(el) => (animateRefs.current[0] = el)}
-            className="animate__animated"
-          >
-            Команда
-          </span>
-
-          <span
-            ref={(el) => (animateRefs.current[7] = el)}
-            className="text-blue-600 animate__animated"
-          >
-            {" "}
-          </span>
-
-          <span
-            ref={(el) => (animateRefs.current[14] = el)}
-            className="animate__animated"
-          >
-            "
-          </span>
-          <span
-            ref={(el) => (animateRefs.current[8] = el)}
-            className="text-yellow-400 animate__animated"
-          >
-            К
-          </span>
-          <span
-            ref={(el) => (animateRefs.current[9] = el)}
-            className="text-green-600 animate__animated"
-          >
-            а
-          </span>
-          <span
-            ref={(el) => (animateRefs.current[10] = el)}
-            className="text-purple-600 animate__animated"
-          >
-            х
-          </span>
-          <span
-            ref={(el) => (animateRefs.current[11] = el)}
-            className="text-yellow-300 animate__animated"
-          >
-            а
-          </span>
-          <span
-            ref={(el) => (animateRefs.current[12] = el)}
-            className="text-blue-600 animate__animated"
-          >
-            ц
-          </span>
-          <span
-            ref={(el) => (animateRefs.current[13] = el)}
-            className="text-green-600 animate__animated"
-          >
-            ь
-          </span>
-          <span
-            ref={(el) => (animateRefs.current[14] = el)}
-            className="animate__animated"
-          >
-            "
-          </span>
+        <Image
+          src="/logo.svg"
+          alt="Logo"
+          width={40}
+          height={40}
+          className="mr-4 "
+        />
+        <div className="text-2xl font-bold text-center flex items-center space-x-1 ">
+          <p className="mr-2">Команда</p>
+          {text.split("").map((char, index) => (
+            <span
+              key={index}
+              className={`${
+                colors[index % colors.length]
+              } animate-fade-in-down`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              {char}
+            </span>
+          ))}
         </div>
-        <HandHeart className="w-6 h-6 ml-2 text-red-600" />{" "}
-        {/* Иконка hand-heart */}
+        <HandHeart className="w-6 h-6 ml-2 text-red-600 animate-bounce" />
       </div>
     </header>
   );
