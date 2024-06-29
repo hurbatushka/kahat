@@ -71,10 +71,10 @@ export default [
     imagesFolder: '/images/post6/',
     date: "29.06.2024 11:55",
     images: [
-      '/images/post6/1.jpg',
+      '/images/post6/4.jpg',
       '/images/post6/2.jpg',
       '/images/post6/3.jpg',
-      '/images/post6/4.jpg',
+      '/images/post6/1.jpg',
       '/images/post6/5.jpg'
     ]
   },
